@@ -32,6 +32,11 @@ module.exports = {
     'import/parsers': {
       '@typescript-eslint/parser': ['.ts', '.tsx'],
     },
+    'import/resolver': {
+      node: {
+        paths: ['src'],
+      },
+    },
   },
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.ts', 'tsx'] }],

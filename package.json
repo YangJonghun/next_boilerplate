@@ -2,9 +2,9 @@
   "name": "next_boilerplate",
   "license": "MIT",
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start",
+    "dev": "next src",
+    "build": "next build src",
+    "start": "next start src",
     "compile-check": "tsc --noEmit",
     "lint": "eslint --ignore-path .gitignore . --ext ts,tsx,js,jsx",
     "lint:fix": "yarn lint --fix"

@@ -1,8 +1,8 @@
-import React from "react";
-import { NextContext, NextFC } from "next";
-import Link from "next/link";
+import React from 'react';
+import { NextContext, NextFC } from 'next';
+import Link from 'next/link';
 
-import Helmet from "../components/Helmet";
+import Helmet from 'components/Helmet';
 
 const Test: NextFC = () => (
   <div className="row">

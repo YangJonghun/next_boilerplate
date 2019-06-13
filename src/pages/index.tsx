@@ -2,8 +2,8 @@ import React from 'react';
 import { NextFC } from 'next';
 import Link from 'next/link';
 
-import Helmet from '../components/Helmet';
-import Nav from '../components/Nav';
+import Helmet from 'components/Helmet';
+import Nav from 'components/Nav';
 
 const Home: NextFC = () => (
   <div>
