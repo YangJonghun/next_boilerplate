@@ -4,6 +4,9 @@
 - lint
   - eslint (airbnb / react)
   - prettier
+- git hooks
+  - husky
+  - lint-staged
 
 ---
 
