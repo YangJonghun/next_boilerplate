@@ -11,6 +11,9 @@
 /dist
 **/.next
 
+# analyze
+**/bundles
+
 # misc
 .DS_Store
 .env*
