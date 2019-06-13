@@ -1,5 +1,5 @@
-import React from "react";
-import Link from "next/link";
+import React from 'react';
+import Link from 'next/link';
 
 interface LinksType {
   href: string;
@@ -9,10 +9,10 @@ interface LinksType {
 
 const links: LinksType[] = [
   {
-    href: "https://github.com/segmentio/create-next-app",
-    label: "Github",
-    key: ""
-  }
+    href: 'https://github.com/segmentio/create-next-app',
+    label: 'Github',
+    key: '',
+  },
 ].map(link => {
   const props = link;
   props.key = `nav-link-${link.href}-${link.label}`;
