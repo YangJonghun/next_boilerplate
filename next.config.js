@@ -4,7 +4,18 @@
 'strict';
 
 const path = require('path');
+const fs = require('fs');
 const withTypescript = require('@zeit/next-typescript');
+const Dotenv = require('dotenv-webpack');
+
+const { NODE_ENV } = process.env;
+if (!NODE_ENV) {
+  throw new Error('The NODE_ENV environment variable is required but was not specified.');
+}
+
+// resolve path util
+const appDirectory = fs.realpathSync(process.cwd());
+const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
 module.exports = withTypescript({
   webpack: config => {
@@ -12,6 +23,22 @@ module.exports = withTypescript({
     config.node = {
       fs: 'empty',
     };
+
+    // dotenv setup
+    const dotenvFile = `${resolveApp('.env')}.${NODE_ENV}`;
+
+    config.plugins = config.plugins || [];
+    config.plugins = [
+      ...config.plugins,
+      // Read the .env file
+      new Dotenv({
+        path: fs.existsSync(dotenvFile) ? dotenvFile : resolveApp('.env'),
+        // for validate ".env.*" file through ".env.example"
+        safe:
+          fs.readdirSync(resolveApp('.')).filter(fn => fn.startsWith('.env') && !fn.endsWith('.example')).length !== 0,
+        systemvars: true,
+      }),
+    ];
 
     // npm packages polyfill setup
     const originalEntry = config.entry;
