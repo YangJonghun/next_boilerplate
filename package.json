@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "compile-check": "tsc --noEmit",
   },
   "dependencies": {
     "@zeit/next-typescript": "^1.1.1",
