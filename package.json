@@ -21,6 +21,7 @@
     ]
   },
   "dependencies": {
+    "@babel/polyfill": "^7.4.4",
     "@zeit/next-typescript": "^1.1.1",
     "next": "^8.1.0",
     "react": "^16.8.6",
@@ -45,5 +46,17 @@
     "lint-staged": "^8.2.0",
     "prettier": "^1.18.2",
     "typescript": "^3.5.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

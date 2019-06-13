@@ -8,6 +8,7 @@
   - husky
   - lint-staged
 - absolute path import (with './src')
+- polyfills (for inside NPM modules)
 
 ---
 
