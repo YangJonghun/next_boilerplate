@@ -4,6 +4,9 @@
 - lint
   - eslint (airbnb / react)
   - prettier
+- test
+  - jest
+  - @testing-library/react
 - git hooks
   - husky
   - lint-staged
@@ -13,6 +16,7 @@
   - ".env.원하는 NODE_ENV 값" 으로 파일명 설정 (default: development, production)
   - .env.example파일에 정의해두고 다른 .env파일을 설정하면 그 파일의 환경변수를 강제할 수 있음
 - analyze bundle
+
 ---
 
 현재 작업 중

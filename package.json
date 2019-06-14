@@ -9,13 +9,14 @@
     "compile-check": "tsc --noEmit",
     "lint": "eslint --ignore-path .gitignore . --ext ts,tsx,js,jsx",
     "lint:fix": "yarn lint --fix",
+    "test": "jest --verbose --coverage",
     "analyze": "cross-env BUNDLE_ANALYZE=both yarn build",
     "analyze:server": "cross-env BUNDLE_ANALYZE=server yarn build",
     "analyze:browser": "cross-env BUNDLE_ANALYZE=browser yarn build"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn compile-check && lint-staged"
+      "pre-commit": "yarn compile-check && yarn test && lint-staged"
     }
   },
   "lint-staged": {
@@ -26,14 +27,17 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
+    "@testing-library/react": "^8.0.1",
     "@zeit/next-bundle-analyzer": "^0.1.2",
     "@zeit/next-typescript": "^1.1.1",
     "dotenv-webpack": "^1.7.0",
+    "jest-dom": "^3.5.0",
     "next": "^8.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
+    "@types/jest": "^24.0.14",
     "@types/next": "^8.0.5",
     "@types/react": "^16.8.19",
     "@types/react-dom": "^16.8.4",
@@ -50,6 +54,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.13.0",
     "husky": "^2.4.1",
+    "jest": "^24.8.0",
     "lint-staged": "^8.2.0",
     "prettier": "^1.18.2",
     "typescript": "^3.5.1"
