@@ -2,7 +2,7 @@
 
 - typescript
 - lint
-  - eslint (airbnb / react)
+  - eslint (airbnb / react / react-hooks)
   - prettier
 - test
   - jest
