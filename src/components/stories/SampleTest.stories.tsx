@@ -1,12 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, number, boolean } from '@storybook/addon-knobs';
-import { withInfo } from '@storybook/addon-info';
 
 import SampleTest from 'components/SampleTest';
 
 storiesOf('For Test', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs)
   .add('SampleTest', () => <SampleTest title={text('title', 'Hello Storybook')} />)
   .add('Dynamic variables with addon-knobs', () => {
