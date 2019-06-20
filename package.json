@@ -11,6 +11,8 @@
     "lint:fix": "yarn lint --fix",
     "test": "jest --verbose --coverage",
     "analyze": "cross-env BUNDLE_ANALYZE=both yarn build",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
     "analyze:server": "cross-env BUNDLE_ANALYZE=server yarn build",
     "analyze:browser": "cross-env BUNDLE_ANALYZE=browser yarn build"
   },
@@ -37,13 +39,21 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
+    "@storybook/addon-info": "^5.1.8",
+    "@storybook/addon-knobs": "^5.1.8",
+    "@storybook/react": "^5.1.8",
     "@types/jest": "^24.0.14",
     "@types/next": "^8.0.5",
     "@types/react": "^16.8.19",
     "@types/react-dom": "^16.8.4",
+    "@types/storybook__addon-info": "^4.1.2",
+    "@types/storybook__addon-knobs": "^5.0.1",
+    "@types/storybook__react": "^4.0.2",
     "@types/styled-jsx": "^2.2.8",
     "@typescript-eslint/eslint-plugin": "^1.10.2",
     "@typescript-eslint/parser": "^1.10.2",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.0.6",
     "cross-env": "^5.2.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
@@ -58,6 +68,7 @@
     "jest": "^24.8.0",
     "lint-staged": "^8.2.0",
     "prettier": "^1.18.2",
+    "react-docgen-typescript-loader": "^3.1.0",
     "typescript": "^3.5.1"
   },
   "browserslist": {
