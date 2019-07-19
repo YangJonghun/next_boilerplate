@@ -18,6 +18,7 @@ const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
 module.exports = withBundleAnalyzer({
+  distDir: '../.next',
   analyzeServer: ['server', 'both'].includes(process.env.BUNDLE_ANALYZE),
   analyzeBrowser: ['browser', 'both'].includes(process.env.BUNDLE_ANALYZE),
   bundleAnalyzerConfig: {
@@ -38,19 +39,22 @@ module.exports = withBundleAnalyzer({
 
     // dotenv setup
     const dotenvFile = `${resolveApp('.env')}.${NODE_ENV}`;
+    const isDotenvExist = fs.existsSync(dotenvFile);
 
-    config.plugins = config.plugins || [];
-    config.plugins = [
-      ...config.plugins,
-      // Read the .env file
-      new Dotenv({
-        path: fs.existsSync(dotenvFile) ? dotenvFile : resolveApp('.env'),
-        // for validate ".env.*" file through ".env.example"
-        safe:
-          fs.readdirSync(resolveApp('.')).filter(fn => fn.startsWith('.env') && !fn.endsWith('.example')).length !== 0,
-        systemvars: true,
-      }),
-    ];
+    if (isDotenvExist || fs.existsSync(resolveApp('.env'))) {
+      config.plugins = config.plugins || [];
+      config.plugins = [
+        ...config.plugins,
+        // Read the .env file
+        new Dotenv({
+          path: isDotenvExist ? dotenvFile : resolveApp('.env'),
+          safe:
+            fs.readdirSync(resolveApp('.')).filter(fn => fn.startsWith('.env') && !fn.endsWith('.example')).length !==
+            0,
+          systemvars: true,
+        }),
+      ];
+    }
 
     // npm packages polyfill setup
     const originalEntry = config.entry;
