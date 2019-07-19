@@ -1,11 +1,11 @@
 import React from 'react';
-import { NextFC } from 'next';
+import { NextComponentType } from 'next';
 import Link from 'next/link';
 
 import Helmet from 'components/Helmet';
 import Nav from 'components/Nav';
 
-const Home: NextFC = () => (
+const Home: NextComponentType = () => (
   <div>
     <Helmet title="Home" />
     <Nav />

@@ -1,10 +1,10 @@
 import React from 'react';
-import { NextContext, NextFC } from 'next';
+import { NextComponentType } from 'next';
 import Link from 'next/link';
 
 import Helmet from 'components/Helmet';
 
-const Test: NextFC = () => (
+const Test: NextComponentType = () => (
   <div className="row">
     <Helmet title="Test" />
     <Link href="/">
@@ -61,7 +61,7 @@ const Test: NextFC = () => (
   </div>
 );
 
-Test.getInitialProps = (context: NextContext) => {
+Test.getInitialProps = context => {
   console.log(context.asPath);
   return {};
 };

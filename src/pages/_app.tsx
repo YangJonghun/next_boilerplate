@@ -1,10 +1,10 @@
 import React from 'react';
-import App, { Container, NextAppContext } from 'next/app';
+import App, { Container, AppContext } from 'next/app';
 
 import Helmet from 'components/Helmet';
 
 class CustomApp extends App {
-  static async getInitialProps(context: NextAppContext) {
+  static async getInitialProps(context: AppContext) {
     const { Component, ctx } = context;
 
     let pageProps = {};

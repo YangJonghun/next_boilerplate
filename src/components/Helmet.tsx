@@ -1,6 +1,6 @@
 import React from 'react';
 import NextHead from 'next/head';
-import { withRouter, SingletonRouter } from 'next/router';
+import { useRouter } from 'next/router';
 
 const defaultDescription = '';
 const defaultOGImage = '';
@@ -10,10 +10,10 @@ export interface HelmetProps {
   description?: string;
   url?: string;
   ogImage?: string;
-  router?: SingletonRouter;
 }
 
-const Head: React.FC<HelmetProps> = ({ title, description, url, ogImage, router }) => {
+const Head: React.FC<HelmetProps> = ({ title, description, url, ogImage }) => {
+  const router = useRouter();
   const pathname = router && router.asPath ? router.asPath : '';
   return (
     <NextHead>
@@ -32,4 +32,4 @@ const Head: React.FC<HelmetProps> = ({ title, description, url, ogImage, router 
   );
 };
 
-export default withRouter(Head);
+export default Head;
