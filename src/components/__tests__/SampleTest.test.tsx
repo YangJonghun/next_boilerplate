@@ -1,8 +1,6 @@
 import * as React from 'react';
-import { cleanup, fireEvent, render } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import SampleTest, { SampleTestProps } from '../SampleTest';
-
-afterEach(cleanup);
 
 describe('<SampleTest />', () => {
   const setup = (props: Partial<SampleTestProps> = {}) => {
